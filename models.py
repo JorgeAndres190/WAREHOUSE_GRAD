@@ -18,6 +18,16 @@ class Product(SQLModel, table=True):
 	updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 
+class ProductCreate(SQLModel):
+	id: Optional[int] = Field(default=None, ge=1)
+	item_name: str
+	category: str
+	quantity: int = Field(default=0, ge=0)
+	unit_price: float = Field(ge=0)
+	supplier: Optional[str] = None
+	last_restocked: Optional[date] = None
+
+
 DATABASE_URL = "sqlite:///sports_warehouse.db"
 engine = create_engine(DATABASE_URL, echo=False)
 

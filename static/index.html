@@ -35,6 +35,83 @@
 			</article>
 		</section>
 
+		<section class="create-shell" aria-label="Add new product">
+			<div class="create-toolbar">
+				<h2>add product</h2>
+			</div>
+			<form id="createItemForm" class="create-form">
+				<label>
+					<span>ID (optional)</span>
+					<input id="itemId" name="id" type="number" min="1" placeholder="Auto-generated if empty">
+				</label>
+				<label>
+					<span>Name</span>
+					<input id="itemName" name="item_name" type="text" required>
+				</label>
+				<label>
+					<span>Category</span>
+					<input id="itemCategory" name="category" type="text" required>
+				</label>
+				<label>
+					<span>Quantity</span>
+					<input id="itemQuantity" name="quantity" type="number" min="0" required>
+				</label>
+				<label>
+					<span>Unit Price</span>
+					<input id="itemPrice" name="unit_price" type="number" min="0" step="0.01" required>
+				</label>
+				<label>
+					<span>Supplier (optional)</span>
+					<input id="itemSupplier" name="supplier" type="text">
+				</label>
+				<label>
+					<span>Last Restocked (optional)</span>
+					<input id="itemRestocked" name="last_restocked" type="date">
+				</label>
+				<button id="createButton" class="create-btn" type="submit">Add Item</button>
+			</form>
+		</section>
+
+		<section id="editShell" class="create-shell is-hidden" aria-label="Edit product">
+			<div class="create-toolbar">
+				<h2>edit product</h2>
+			</div>
+			<form id="editItemForm" class="create-form">
+				<label>
+					<span>ID</span>
+					<input id="editItemId" name="id" type="number" min="1" readonly required>
+				</label>
+				<label>
+					<span>Name</span>
+					<input id="editItemName" name="item_name" type="text" required>
+				</label>
+				<label>
+					<span>Category</span>
+					<input id="editItemCategory" name="category" type="text" required>
+				</label>
+				<label>
+					<span>Quantity</span>
+					<input id="editItemQuantity" name="quantity" type="number" min="0" required>
+				</label>
+				<label>
+					<span>Unit Price</span>
+					<input id="editItemPrice" name="unit_price" type="number" min="0" step="0.01" required>
+				</label>
+				<label>
+					<span>Supplier (optional)</span>
+					<input id="editItemSupplier" name="supplier" type="text">
+				</label>
+				<label>
+					<span>Last Restocked (optional)</span>
+					<input id="editItemRestocked" name="last_restocked" type="date">
+				</label>
+				<div class="form-actions">
+					<button id="saveEditButton" class="create-btn" type="submit">Save Changes</button>
+					<button id="cancelEditButton" class="secondary-btn" type="button">Cancel</button>
+				</div>
+			</form>
+		</section>
+
 		<section class="table-shell" aria-label="Products table">
 			<div class="table-toolbar">
 				<h2>products</h2>
