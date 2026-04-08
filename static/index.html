@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Warehouse Admin</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="bg-grid" aria-hidden="true"></div>
+	<main class="layout">
+		<header class="topbar">
+			<div>
+				<p class="eyebrow">Sports Warehouse</p>
+				<h1>Inventory Admin</h1>
+			</div>
+			<button id="refreshButton" class="refresh-btn" type="button">Refresh</button>
+		</header>
+
+		<section class="stats" aria-label="Inventory summary">
+			<article class="stat-card">
+				<h2>Total Products</h2>
+				<p id="totalProducts">0</p>
+			</article>
+			<article class="stat-card">
+				<h2>Total Units</h2>
+				<p id="totalUnits">0</p>
+			</article>
+			<article class="stat-card">
+				<h2>Inventory Value</h2>
+				<p id="inventoryValue">$0.00</p>
+			</article>
+		</section>
+
+		<section class="table-shell" aria-label="Products table">
+			<div class="table-toolbar">
+				<h2>products</h2>
+				<p id="statusText" class="status">Loading inventory...</p>
+			</div>
+			<div class="table-wrap">
+				<table>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Category</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Supplier</th>
+							<th>Last Restocked</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody id="inventoryBody"></tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+
+	<script src="script.js" defer></script>
+</body>
+</html>

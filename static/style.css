@@ -1,0 +1,255 @@
+:root {
+	--bg-a: #0e1525;
+	--bg-b: #15233a;
+	--panel: #f1f5f9;
+	--panel-2: #ffffff;
+	--ink: #0f172a;
+	--muted: #475569;
+	--line: #cbd5e1;
+	--accent: #0f766e;
+	--accent-soft: #14b8a61a;
+	--danger: #b91c1c;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	color: var(--ink);
+	background: radial-gradient(circle at 10% 10%, #1f314f 0%, var(--bg-a) 28%, var(--bg-b) 100%);
+	font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+.bg-grid {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(to right, #ffffff10 1px, transparent 1px),
+		linear-gradient(to bottom, #ffffff10 1px, transparent 1px);
+	background-size: 32px 32px;
+	mask-image: radial-gradient(circle at 50% 20%, black 30%, transparent 80%);
+}
+
+.layout {
+	position: relative;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 2rem 1rem 3rem;
+}
+
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	color: #e2e8f0;
+	margin-bottom: 1.25rem;
+	animation: slide-in 420ms ease-out;
+}
+
+.eyebrow {
+	margin: 0;
+	font-size: 0.75rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	opacity: 0.75;
+}
+
+h1 {
+	margin: 0.15rem 0 0;
+	font-size: clamp(1.5rem, 3vw, 2.1rem);
+}
+
+.refresh-btn {
+	border: 1px solid #ffffff40;
+	background: #ffffff14;
+	color: #f8fafc;
+	border-radius: 10px;
+	padding: 0.6rem 0.9rem;
+	cursor: pointer;
+	font-weight: 600;
+	transition: transform 140ms ease, background-color 140ms ease;
+}
+
+.refresh-btn:hover {
+	transform: translateY(-1px);
+	background: #ffffff22;
+}
+
+.stats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.8rem;
+	margin-bottom: 1rem;
+}
+
+.stat-card {
+	background: linear-gradient(145deg, #f8fafc, #edf2f7);
+	border: 1px solid #ffffff;
+	border-radius: 14px;
+	padding: 0.9rem;
+	box-shadow: 0 8px 24px #0206172a;
+	animation: rise-in 520ms ease-out;
+}
+
+.stat-card h2 {
+	margin: 0;
+	font-size: 0.82rem;
+	color: var(--muted);
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+.stat-card p {
+	margin: 0.35rem 0 0;
+	font-family: "IBM Plex Mono", monospace;
+	font-size: clamp(1.1rem, 2vw, 1.5rem);
+	font-weight: 500;
+}
+
+.table-shell {
+	background: var(--panel);
+	border: 1px solid #ffffff;
+	border-radius: 16px;
+	box-shadow: 0 12px 30px #0206172d;
+	overflow: hidden;
+	animation: rise-in 700ms ease-out;
+}
+
+.table-toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.95rem 1rem;
+	background: var(--panel-2);
+	border-bottom: 1px solid var(--line);
+}
+
+.table-toolbar h2 {
+	margin: 0;
+	font-size: 0.95rem;
+	font-family: "IBM Plex Mono", monospace;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.status {
+	margin: 0;
+	font-size: 0.85rem;
+	color: var(--muted);
+}
+
+.table-wrap {
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 760px;
+}
+
+thead {
+	background: #e2e8f0;
+}
+
+th,
+td {
+	text-align: left;
+	padding: 0.7rem 0.8rem;
+	border-bottom: 1px solid var(--line);
+}
+
+th {
+	font-size: 0.76rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #1e293b;
+}
+
+tbody tr {
+	background: #f8fafc;
+	transition: background-color 150ms ease;
+}
+
+tbody tr:nth-child(even) {
+	background: #f1f5f9;
+}
+
+tbody tr:hover {
+	background: var(--accent-soft);
+}
+
+.qty-low {
+	color: var(--danger);
+	font-weight: 700;
+}
+
+.action-cell {
+	white-space: nowrap;
+}
+
+.delete-btn {
+	border: 1px solid #ef4444;
+	background: #fee2e2;
+	color: #991b1b;
+	padding: 0.35rem 0.55rem;
+	border-radius: 8px;
+	font-size: 0.78rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.delete-btn:hover {
+	transform: translateY(-1px);
+	background: #fecaca;
+}
+
+.delete-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+@keyframes slide-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes rise-in {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 760px) {
+	.layout {
+		padding-top: 1.2rem;
+	}
+
+	.topbar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.stats {
+		grid-template-columns: 1fr;
+	}
+}
